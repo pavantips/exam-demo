@@ -49,7 +49,7 @@ st.markdown("""
             Please click the button below to close your session.
         </p>
         <div style="margin-top: 40px;">
-            <a id="close-session" href="/Thankyou">Close</a>
+            <a id="close-session" href="/Thankyou" target="_self">Close</a>
         </div>
     </div>
 """, unsafe_allow_html=True)
