@@ -46,7 +46,7 @@ st.markdown("""
             Please click the button below to close your session.
         </p>
         <div style="margin-top: 40px;">
-            <button id="close-session">Close</button>
+            <button id="close-session" onclick="window.location.href='/Thankyou'">Close</button>
         </div>
     </div>
 """, unsafe_allow_html=True)
