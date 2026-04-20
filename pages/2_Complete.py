@@ -22,10 +22,11 @@ st.markdown("""
         margin: 20px 0;
     }
     #close-session {
+        display: inline-block;
         margin-top: 40px;
         background-color: #4a90e2;
         color: white;
-        border: none;
+        text-decoration: none;
         padding: 14px 44px;
         font-size: 1rem;
         border-radius: 6px;
@@ -33,6 +34,8 @@ st.markdown("""
     }
     #close-session:hover {
         background-color: #357abd;
+        color: white;
+        text-decoration: none;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -46,7 +49,7 @@ st.markdown("""
             Please click the button below to close your session.
         </p>
         <div style="margin-top: 40px;">
-            <button id="close-session" onclick="window.location.href='/Thankyou'">Close</button>
+            <a id="close-session" href="/Thankyou">Close</a>
         </div>
     </div>
 """, unsafe_allow_html=True)
