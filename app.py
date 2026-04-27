@@ -14,4 +14,4 @@ st.markdown("""
 col1, col2, col3 = st.columns([1, 1, 1])
 with col2:
     if st.button("Start Exam", type="primary", use_container_width=True):
-        st.switch_page("pages/1_Exam.py")
+        st.switch_page("pages/0_Password.py")

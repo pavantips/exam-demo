@@ -13,6 +13,47 @@ def test_landing_has_start_button():
     assert at.button[0].label == "Start Exam"
 
 
+# ── Password Page ────────────────────────────────────────────────────────────
+
+def test_password_page_renders():
+    at = AppTest.from_file("pages/0_Password.py").run()
+    assert not at.exception
+
+def test_password_page_title():
+    at = AppTest.from_file("pages/0_Password.py").run()
+    assert any("Exam Authentication" in m.value for m in at.markdown)
+
+def test_password_page_has_input():
+    at = AppTest.from_file("pages/0_Password.py").run()
+    assert len(at.text_input) == 1
+
+def test_password_page_has_submit_button():
+    at = AppTest.from_file("pages/0_Password.py").run()
+    assert at.button[0].label == "Submit"
+
+def test_password_correct_navigates():
+    # AppTest cannot execute st.switch_page (no real browser).
+    # We verify the correct password triggers a switch_page attempt
+    # (exception from navigation) and NOT an "Incorrect password" error.
+    at = AppTest.from_file("pages/0_Password.py").run()
+    at.text_input[0].set_value("password").run()
+    at.button[0].click().run()
+    assert len(at.error) == 0  # no "Incorrect password" shown
+
+def test_password_incorrect_shows_error():
+    at = AppTest.from_file("pages/0_Password.py").run()
+    at.text_input[0].set_value("wrongpassword").run()
+    at.button[0].click().run()
+    assert len(at.error) == 1
+    assert "Incorrect password" in at.error[0].value
+
+def test_password_empty_shows_error():
+    at = AppTest.from_file("pages/0_Password.py").run()
+    at.text_input[0].set_value("").run()
+    at.button[0].click().run()
+    assert len(at.error) == 1
+
+
 # ── Page 1: Exam Questions ───────────────────────────────────────────────────
 
 def test_exam_renders():
