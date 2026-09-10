@@ -9,7 +9,7 @@ with st.sidebar:
     st.markdown("---")
 
     if "nav" not in st.session_state:
-        st.session_state.nav = "examplify"
+        st.session_state.nav = "exam"
 
     if st.button("🖥️ Examplify Notice", use_container_width=True, key="btn_examplify"):
         st.session_state.nav = "examplify"
